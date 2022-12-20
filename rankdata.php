@@ -103,7 +103,12 @@
 		$id = hasPlaylist($key, $data['data']['segments']);
 
 		if($id != -1){
-			$rankData[$value] = array($data['data']['segments'][$id]['stats']['tier']['value'], $data['data']['segments'][$id]['stats']['rating']['value']); // rankNumber, MMR
+			$rankData[$value] = array(
+				$data['data']['segments'][$id]['stats']['tier']['value'], //rankNumber
+				$data['data']['segments'][$id]['stats']['rating']['value'], // Rank MMR
+				$data['data']['segments'][$id]['stats']['tier']['metadata']['iconUrl'], // Rank Icon image
+				$data['data']['segments'][$id]['stats']['tier']['metadata']['name'] // Rank Name
+			); 
 		}
 	}
 
